@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--fontsize-->
+  <script src="https://kit.fontawesome.com/5e6eeda1ff.js" crossorigin="anonymous"></script>
+  <!--google fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <!--style-->
+  <link rel="stylesheet" href="customer.css">
+  <title>The Spark Bank</title>
+  <link rel="stylesheet"
+    href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="container">
+    <header>
+      <div id="topbar">
+        <div class="left">
+          <h1><a href="https://www.thesparksfoundationsingapore.org/"><i class="fas fa-university"></i></a><span
+              class="name">
+              THE SPARK BANK</span>
+          </h1>
+        </div>
+        <div class="right">
+          <a href="index.html"> <button class="buttons button1">HOME</button></a>
+          <button type="button" class="buttons button2 " data-toggle="modal" data-target="#myModal">VIEW
+            CUSTOMERS</button></td>
+          <button class=" btn-info buttons button1" data-toggle="modal" data-target="#sendMoney">TRANSFER MONEY</button>
+          <a id="transaction" class="btn btn-info" href="history.html" data-toggle="modal"
+            data-target="#transactionHistory"> <button class="buttons button3">SEE ALL TRANSACTIONS</button>
+          </a>
+        </div>
+      </div>
+      <!--middle part-->
+      <div class="middle">
+        <p>NAME : PRANJALI RAJMANE</p>
+      </div>
+      <!-- Modal tansfer money -->
+      <div class="modal fade" id="sendMoney" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">TRANSFER MONEY</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="">
+                <div class="input-group mb-3">
+                  <input type="text" id="enterSName" class="form-control" placeholder="Sender's username"
+                    aria-label="Sender's username" aria-describedby="basic-addon2">
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2">@email.com</span>
+                  </div>
+                </div>
+                <div class="input-group mb-3">
+                  <input type="text" id="enterName" class="form-control" placeholder="Receiver's username"
+                    aria-label="Recipient's username" aria-describedby="basic-addon2">
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2">@email.com</span>
+                  </div>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Rs</span>
+                  </div>
+                  <input type="text" id="enterAmount" class="form-control" placeholder=" Enter Amount"
+                    aria-label="Amount">
+                  <div class="input-group-append">
+                    <span class="input-group-text">.00</span>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" onclick="sendMoney()" class="btn btn-success" data-dismiss="modal">Transfer
+                Money</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal see all transaction History-->
+      <div class="modal fade" id="transactionHistory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">TRANSACTION HISTORY</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <ol id="transaction-history-body">
+
+              </ol>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--view customers-->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">CUSTOMER LIST</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <ol>
+                <h5 class="modal-title" id="exampleModalLabel">1.Pranjali Rajmane</h5>
+                <h5 class="modal-title " id="exampleModalLabel">2.Parth Rajmane</h5>
+                <h5 class="modal-title " id="exampleModalLabel">3.Prabhuling Rajmane</h5>
+                <h5 class="modal-title " id="exampleModalLabel">4.Rajashri Rajmane</h5>
+                <h5 class="modal-title " id="exampleModalLabel">5.Aappa Rajmane</h5>
+                <h5 class="modal-title " id="exampleModalLabel">6.Shalan Rajmane</h5>
+                <h5 class="modal-title " id="exampleModalLabel">7.Aakanksha Awatade</h5>
+                <h5 class="modal-title" id="exampleModalLabel">8.Shraddha Gaikwad</h5>
+                <h5 class="modal-title " id="exampleModalLabel">9.Sakshi Mohite</h5>
+                <h5 class="modal-title " id="exampleModalLabel">10.Nikita Khatke</h5>
+              </ol>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--model view customer-->
+      <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">CUSTOMER STATUS</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <ol id="view-customer-balance1">
+                <h5 class="modal-title " id="exampleModalLabel">Customer ID : 1 </h5>
+                <h5 class="modal-title" id="exampleModalLabel">Customer Name : Pranjali Rajmane
+                </h5>
+                <h5 class="modal-title mail" id="exampleModalLabel">Customer Email :
+                  pranjalirajmane@gmail.com</h5>
+                <h5 class="modal-title balance" id="exampleModalLabel">Customer Account Balance :
+                  Rs.
+                  1100</h5>
+                <a href="#"> <img src="rupees.jfif" width="200px" height="200px"> </a>
+              </ol>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--model view customer-->
+      <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">CUSTOMER STATUS</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <ol id="view-customer-balance2">
+                <h5 class="modal-title " id="exampleModalLabel">Customer ID : 2 </h5>
+                <h5 class="modal-title " id="exampleModalLabel">Customer Name : Parth Rajmane
+                </h5>
+                <h5 class="modal-title mail" id="exampleModalLabel">Customer Email :
+                  parthrajmane@gmail.com</h5>
+                <h5 class="modal-title balance" id="exampleModalLabel">Customer Account Balance : Rs.
+                  1900</h5>
+                <a href="#"> <img src="rupees.jfif" width="200px" height="200px"> </a>
+              </ol>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">CUSTOMER STATUS</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <ol id="view-customer-balance3">
+                <h5 class="modal-title " id="exampleModalLabel">Customer ID : 3 </h5>
+                <h5 class="modal-title " id="exampleModalLabel">Customer Name : Prabhuling Rajmane
+                </h5>
+                <h5 class="modal-title mail" id="exampleModalLabel">Customer Email :
+                  prabhulingrajmane@gmail.com</h5>
+                <h5 class="modal-title balance" id="exampleModalLabel">Customer Account Balance : Rs.
+                  3000</h5>
+                <a href="#"> <img src="rupees.jfif" width="200px" height="200px"> </a>
+              </ol>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">CUSTOMER STATUS</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <ol id="view-customer-balance4">
+                <h5 class="modal-title " id="exampleModalLabel">Customer ID : 4 </h5>
+                <h5 class="modal-title " id="exampleModalLabel">Customer Name : Rajashri Rajmane
+                </h5>
+                <h5 class="modal-title mail" id="exampleModalLabel">Customer Email :
+                  rajashrirajmane@gmail.com</h5>
+                <h5 class="modal-title balance" id="exampleModalLabel">Customer Account Balance : Rs.
+                  4000</h5>
+                <a href="#"> <img src="rupees.jfif" width="200px" height="200px"> </a>
+              </ol>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- table  -->
+      <div class="cutable">
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>CUSTOMER NAME</th>
+            <th>EMAIL</th>
+            <th>ACCOUNT BALANCE</th>
+            <th>VIEW STATUS</th>
+          </tr>
+          <tr>
+            <td scope="row">1</td>
+            <td>Pranjali Rajmane</td>
+            <td>pranjalirajmane@email.com</td>
+            <td>
+              <p id="pranjalirajmaneBankBalance">1000</p>
+            </td>
+            <td> <button type="button" class="buttons button4 " data-toggle="modal" data-target="#myModal1">View
+                Customer Status</button></td>
+
+          </tr>
+          <tr>
+            <td scope="row">2</td>
+            <td>Parth Rajmane</td>
+            <td>parthrajmane@email.com</td>
+            <td>
+              <p id="parthrajmaneBankBalance">2000</p>
+            </td>
+            <td> <button type="button" class="buttons button4 " data-toggle="modal" data-target="#myModal2">View
+                Customer Status
+              </button></td>
+          </tr>
+          <tr>
+            <td scope="row">3</td>
+            <td>Prabhuling Rajmane</td>
+            <td>prabhulingrajmane@email.com</td>
+            <td>
+              <p id="prabhulingrajmaneBankBalance">3000</p>
+            </td>
+            <td> <button type="button" class="buttons button4 " data-toggle="modal" data-target="#myModal3">View
+                Customer Status
+              </button></td>
+          </tr>
+          <tr>
+            <td scope="row">4</td>
+            <td>Rajashri Rajmane</td>
+            <td>rajashrirajmane@email.com</td>
+            <td>
+              <p id="rajashrirajmaneBankBalance">4000</p>
+            </td>
+            <td> <button type="button" class="buttons button4 " data-toggle="modal" data-target="#myModal4">View
+                Customer Status
+              </button></td>
+          </tr>
+          <td scope="row">5</td>
+          <td>Aappa Rajmane</td>
+          <td>aapparajmane@email.com</td>
+          <td>
+            <p id="aapparajmaneBankBalance">5000</p>
+          </td>
+          <td> <button type="button" class="buttons button4 " data-toggle="modal" data-target="#myModal4">View Customer
+              Status
+            </button></td>
+          </tr>
+          <tr>
+            <td scope="row">6</td>
+            <td>Shalan Rajmane</td>
+            <td>shalanrajmane@email.com</td>
+            <td>
+              <p id="shalanrajmaneBankBalance">6000</p>
+            </td>
+            <td> <button type="button" class="buttons button4 " data-toggle="modal" data-target="#myModal4">View
+                Customer Status
+              </button></td>
+          </tr>
+          <tr>
+            <td scope="row">7</td>
+            <td>Aakanksha Awatade </td>
+            <td>aakankshaawatade@email.com</td>
+            <td>
+              <p id="aakankshaawatadeBankBalance">7000</p>
+            </td>
+            <td> <button type="button" class="buttons button4 " data-toggle="modal" data-target="#myModal4">View
+                Customer Status
+              </button></td>
+          </tr>
+          <tr>
+            <td scope="row">8</td>
+            <td>Shraddha Gaikwad</td>
+            <td>shraddhagaikwad@email.com</td>
+            <td>
+              <p id="shraddhagaikwadBankBalance">8000</p>
+            </td>
+            <td> <button type="button" class="buttons button4 " data-toggle="modal" data-target="#myModal4">View
+                Customer Status
+              </button></td>
+          </tr>
+          <tr>
+            <td scope="row">9</td>
+            <td>Sakshi Mohite</td>
+            <td>sakshimohite@email.com</td>
+            <td>
+              <p id="sakshimohiteBankBalance">9000</p>
+            </td>
+            <td> <button type="button" class="buttons button4 " data-toggle="modal" data-target="#myModal4">View
+                Customer Status
+              </button></td>
+          </tr>
+          <tr>
+            <td scope="row">10</td>
+            <td>Nikita Khatke</td>
+            <td>nikitakhatke@email.com</td>
+            <td>
+              <p id="nikitakhatkeBankBalance">10000</p>
+            </td>
+            <td> <button type="button" class="buttons button4 " data-toggle="modal" data-target="#myModal4">View
+                Customer Status
+              </button></td>
+          </tr>
+        </table>
+      </div>
+    </header>
+  </div>
+
+
+  <script src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
+  <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
+  <script>
+    function sendMoney() {
+      var enterName = document.getElementById("enterName").value;
+      var enterAmount = parseInt(document.getElementById("enterAmount").value);
+      var enterSName = document.getElementById("enterSName").value;
+      var findSenderBankAccount = enterSName + "BankBalance";
+      var enterSAmount = parseInt(document.getElementById(findSenderBankAccount).innerHTML);
+      if (enterAmount > enterSAmount) {
+        alert("Insufficient Balance.")
+      }
+      else {
+        var findUserBankAccount = enterName + "BankBalance";
+        var finalAmount = parseInt(document.getElementById(findUserBankAccount).innerHTML) + enterAmount;
+        var myAccountBalance = parseInt(document.getElementById(findSenderBankAccount).innerHTML) - enterAmount;
+        document.getElementById(findSenderBankAccount).innerHTML = myAccountBalance;
+        document.getElementById(findUserBankAccount).innerHTML = finalAmount;
+        alert(`Successful Transaction !!  
+Rs.${enterAmount} is sent to ${enterName}@email.com.`)
+
+        // transaction history 
+        var createPTag = document.createElement("li");
+        var textNode = document.createTextNode(`Rs ${enterAmount} is sent from the sender with Email-id ${enterSName}@email.com
+ to receiver with Email-id ${enterName}@email.com on ${Date()}.`);
+        createPTag.appendChild(textNode);
+        var element = document.getElementById("transaction-history-body");
+        element.insertBefore(createPTag, element.firstChild);
+      }
+      //view-customer-balance
+      var createPTag = document.createElement("li");
+      var textNode = document.createTextNode(`Rs ${enterAmount} is sent from the sender with Email-id ${enterName}@email.com
+ to receiver with Email-id ${enterName}@email.com on ${Date()}.`);
+      createPTag.appendChild(textNode);
+      var element = document.getElementById("view-customer-balance");
+      element.insertBefore(createPTag, element.firstChild);
+    }
+  </script>
+</body>
+
+</html>

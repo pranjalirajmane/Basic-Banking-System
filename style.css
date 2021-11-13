@@ -1,0 +1,125 @@
+*{
+    font-family: 'Roboto Slab', serif;
+    margin:0px;
+    padding: 0;
+}
+body{
+    margin:0;
+}
+.unipadding{
+    padding:0 7%;
+}
+.fab,.fas{
+    background-color: #fbfbfb;
+    padding:10px;
+    border-radius: 50%;
+    font-size: 35px;
+    color: black;
+    margin-bottom: 10px;
+}
+.fa-facebook-f{
+    margin-top:15px;
+    padding:9px 16px;
+    margin-left: 200px;   
+}
+.fa-university{
+    background-color: rgb(115, 182, 250);
+    font-size: 60px;
+}
+.fa-home,.fa-users{
+    padding:10px;
+    border-radius: 50%;
+    font-size: 25px;
+}
+#left{ 
+    padding-top:18px;
+    padding-bottom: 18px;
+    overflow: auto;
+    margin-left: 430px; 
+    font-size: 30px; 
+}
+#topbar{
+    background-color:rgb(115, 182, 250);
+    padding-bottom: 30px;
+    overflow: auto; 
+}
+#right{
+    margin:0;
+    margin-left: 330px; 
+    margin-right: 0px;
+}
+.btn1 ,.btn2 { 
+    border-radius: 15px;
+    border-color: black;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+.btn1{
+    padding:12px 15px;
+    margin-right: 10px;
+}
+.btn1:hover {
+    background-color:white;
+}
+.btn2{
+    padding-top: 12px;
+    padding-right: 15px;
+    padding-bottom: 3px;
+}
+#poster {
+    background-image: url(../banking.jpg);
+    height: 500px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #cbcbcb;
+    padding-top:25px;
+    padding-bottom:0px;
+    padding-left:1300px;
+    align-items: center;
+}
+#poster p{
+    font-size: 20px;
+}
+.button5 {background-color: #e7e7e7; color: purple;}
+.button { 
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 22px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    color: purple;
+  }
+#copyright{
+    background-color:#222f3e;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    color: #cbcbcb;
+}
+#poster p,h2{
+    margin: 10px 0 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 30em;
+    animation: type 4s steps(60, end); 
+}  
+#poster p:nth-child(2){
+    animation: type2 8s steps(60, end);
+}
+.qoute {
+    font-weight: 900;
+}
+.name {
+    font-weight: 900;
+}
+.name .letter {
+    display: inline-block;
+    line-height: 1em;
+}
